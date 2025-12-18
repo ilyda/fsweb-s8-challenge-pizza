@@ -1,0 +1,39 @@
+@import '_variables.scss';
+
+body {
+    margin: 0;
+}
+
+.header {
+    background-color: #CE2829;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px 0 34px;
+
+    .title {
+        font-family: Londrina Solid;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 50px;
+        color: white;
+        text-align: center;
+        margin: 0 0 34px;
+
+    }
+
+    .breadcrumb {
+        color: white;
+
+        a {
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28.8px;
+            text-decoration: unset;
+            color: white;
+
+        }
+
+    }
+}

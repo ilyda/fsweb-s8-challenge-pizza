@@ -1,0 +1,39 @@
+@import '_variables.scss';
+.order-card{
+    border:unset !important;
+        font-family: Barlow;
+    .title{
+    
+font-weight: 600;
+font-size: 22px;;
+line-height: 29.44px;
+margin-bottom: 24px;
+
+    }
+    .price-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        .price{
+font-weight: 700;
+font-size: 28px;
+line-height: 37.47px;
+
+        }
+    }
+    .text{
+font-weight: 400;
+font-size: 16px;
+line-height: 28.8px;
+margin-bottom: 34px;
+
+    }
+    .form-label{
+font-weight: 600;
+font-size: 20px;
+line-height: 24.76px;
+margin-bottom: 14px;
+
+    }
+}
