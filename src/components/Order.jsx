@@ -105,11 +105,8 @@ export default function Order() {
                   </div>
 
                   <p className="text">
-                    Frontend Dev olarak hala position:absolute kullanıyorsan
-                    bu çok acı pizza tam sana göre...
+                  Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.
                   </p>
-
-                  {/* BOYUT */}
                   <Row className="mt-4">
                     <Col md="6">
                       <Label>
@@ -130,7 +127,7 @@ export default function Order() {
                       ))}
                     </Col>
 
-                    <Col md="6">
+                    <Col md="6" className="mt-4 mt-md-0">
                       <Label>
                         Hamur Seç <span className="text-danger">*</span>
                       </Label>
@@ -168,6 +165,7 @@ export default function Order() {
                                 checked={form.ekMalzemeler.includes(item)}
                                 onChange={handleChange}
                                 invalid={!!errors.ekMalzemeler}
+                                data-cy="extra-item"
                               />
                               <Label check>{item}</Label>
                             </FormGroup>
@@ -177,7 +175,6 @@ export default function Order() {
                     </Row>
                   </div>
 
-                  {/* NOT */}
                   <div className="mt-4">
                     <Label>Sipariş Notu</Label>
                     <Input
@@ -185,34 +182,59 @@ export default function Order() {
                       name="notes"
                       value={form.notes}
                       onChange={handleChange}
+                      data-cy="order-note"
                     />
                   </div>
 
-                  <div className="d-flex justify-content-between align-items-center mt-4">
-                    <div>
+                  <div className="sub-content mt-4 ">
+                    <div className="item counter-box d-none d-lg-block">
                       <Button color="warning" onClick={decrease} disabled={isDisabled}>-</Button>
-                      <span className="mx-2">{counter}</span>
+                      <span className="mx-3">{counter}</span>
                       <Button color="warning" onClick={increase}>+</Button>
                     </div>
 
-                    <div className="text-end">
-                      <p className="mb-1">
-                        Seçimler <strong>{extraPrice.toFixed(2)} ₺</strong>
-                      </p>
-                      <p className="text-danger fw-bold">
-                        Toplam {totalPrice.toFixed(2)} ₺
-                      </p>
+                    <div className="item summary-box">
+                      <h6 className="mb-3">Sipariş Toplamı</h6>
+
+                      <div className="d-flex justify-content-between">
+                        <span>Seçimler</span>
+                        <strong>{extraPrice.toFixed(2)} ₺</strong>
+                      </div>
+
+                      <div className="d-flex justify-content-between mt-2 text-danger fw-bold">
+                        <span>Toplam</span>
+                        <span>{totalPrice.toFixed(2)} ₺</span>
+                      </div>
+
+                      <Button
+                        color="warning"
+                        type="submit"
+                        className="w-100 mt-3 d-none d-lg-block"
+                        disabled={isDisabled}
+                      >
+                        SİPARİŞ VER
+                      </Button>
                     </div>
+                         <div className="d-flex d-lg-none justify-content-between">
+                    <div className="item counter-box ">
+                      <Button color="warning" onClick={decrease} disabled={isDisabled}>-</Button>
+                      <span className="mx-3">{counter}</span>
+                      <Button color="warning" onClick={increase}>+</Button>
+                    </div>
+                   
+                     <Button
+                        color="warning"
+                        type="submit"
+                        className="w-100 mt-3 d-lg-none warning"
+                        disabled={isDisabled}
+                      >
+                        SİPARİŞ VER
+                      </Button>
+                      </div>
                   </div>
 
-                  <Button
-                    color="warning"
-                    type="submit"
-                    className="w-100 mt-3 fw-bold"
-                    disabled={isDisabled}
-                  >
-                    SİPARİŞ VER
-                  </Button>
+
+
 
                 </CardBody>
               </Form>
